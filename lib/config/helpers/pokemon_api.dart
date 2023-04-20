@@ -16,9 +16,9 @@ class PokemonApi {
       final pokemon_model_api = PokemonModelApi.fromJson(response.data);
 
       myPokemon = PokemonModel(
-          pokemon_model_api.name, pokemon_model_api.sprites.frontDefault);
+          pokemon_model_api.name, pokemon_model_api.sprites);
 
-      print(myPokemon.image);
+      print(myPokemon.images.frontDefault);
 
       return myPokemon;
     } on DioError catch (_) {

@@ -1,0 +1,4 @@
+#Thu Apr 20 15:35:04 ART 2023
+base.0=C\:\\Users\\Gonzalo\\Documents\\GitHub\\pokemon\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

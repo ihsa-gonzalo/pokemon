@@ -32,39 +32,68 @@ class _HomeView extends StatelessWidget {
     final pokemonProvider = context.watch<PokemonProvider>();
     final size = MediaQuery.of(context).size;
 
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
+    return SafeArea(
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            pokemonProvider.myPokemon != null
+                ? MyPokemon(pokemonProvider: pokemonProvider,)
+                : const Text('Pokemon no encontrado'),
+            const SizedBox(
+              height: 10,
+            ),
+            MessageFieldBox(
+              onValue: (value) {
+                if (value.isNotEmpty) {
+                  pokemonProvider.getPokemon(value);
+                }
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class FrontBackWidget extends StatelessWidget {
+  const FrontBackWidget({
+    super.key,
+    required this.pokemonProvider,
+  });
+
+  final PokemonProvider pokemonProvider;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        pokemonProvider.myPokemon != null
-            ? MyPokemon(pokemonModel: pokemonProvider.myPokemon!)
-            : const Text('Pokemon no encontrado'),
-        const SizedBox(
-          height: 10,
-        ),
-        MessageFieldBox(
-          onValue: (value) {
-            if (value.isNotEmpty) {
-              pokemonProvider.getPokemon(value);
-            }
-          },
-        ),
+        Text("Mostrar frente"),
+        Switch(value: pokemonProvider.isFront, onChanged: (value) 
+        {
+            pokemonProvider.isFront = value;  
+        },),
       ],
     );
   }
 }
 
 class MyPokemon extends StatelessWidget {
-  final PokemonModel pokemonModel;
-  const MyPokemon({super.key, required this.pokemonModel});
+  final PokemonProvider pokemonProvider;
+  const MyPokemon({super.key, required this.pokemonProvider});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        _image(url: pokemonModel.image),
-        Text(pokemonModel.name.toUpperCase())
+        _image(url: pokemonProvider.url),
+        Text(pokemonProvider.myPokemon!.name),
+        FrontBackWidget(pokemonProvider: pokemonProvider)
       ],
     );
   }
