@@ -17,7 +17,11 @@ class MainApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => PokemonProvider())
       ],
-      child: MaterialApp(title: "Pokemon App",home: HomeScreen(),debugShowCheckedModeBanner: false,),
+      child: MaterialApp(
+        title: "Pokemon App",
+        home: HomeScreen(),
+        debugShowCheckedModeBanner: false,
+      ),
     );
   }
 }
