@@ -6,23 +6,18 @@ class PokemonApi {
   final _dio = Dio();
 
   Future<PokemonModel?> getPokemon(String number) async {
-    try {
-      PokemonModel? myPokemon;
-      final response = await _dio
-          .get("https://pokeapi.co/api/v2/pokemon/" + number.toString());
+    PokemonModel? myPokemon;
+    final response =
+        await _dio.get("https://pokeapi.co/api/v2/pokemon/$number");
 
-      print(response.statusCode);
+    print(response.statusCode);
 
-      final pokemon_model_api = PokemonModelApi.fromJson(response.data);
+    final pokemonModelApi = PokemonModelApi.fromJson(response.data);
 
-      myPokemon = PokemonModel(
-          pokemon_model_api.name, pokemon_model_api.sprites);
+    myPokemon = PokemonModel(pokemonModelApi.name, pokemonModelApi.sprites,pokemonModelApi.sprites.frontDefault,pokemonModelApi.id);
 
-      print(myPokemon.images.frontDefault);
+    print(myPokemon.images.frontDefault);
 
-      return myPokemon;
-    } on DioError catch (_) {
-      return null;
-    }
+    return myPokemon;
   }
 }

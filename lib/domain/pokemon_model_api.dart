@@ -47,26 +47,26 @@ class PokemonModelApi {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['abilities'] = abilities.map((e) => e.toJson()).toList();
-    _data['base_experience'] = baseExperience;
-    _data['forms'] = forms.map((e) => e.toJson()).toList();
-    _data['game_indices'] = gameIndices.map((e) => e.toJson()).toList();
-    _data['height'] = height;
-    _data['held_items'] = heldItems;
-    _data['id'] = id;
-    _data['is_default'] = isDefault;
-    _data['location_area_encounters'] = locationAreaEncounters;
-    _data['moves'] = moves.map((e) => e.toJson()).toList();
-    _data['name'] = name;
-    _data['order'] = order;
-    _data['past_types'] = pastTypes;
-    _data['species'] = species.toJson();
-    _data['sprites'] = sprites.toJson();
-    _data['stats'] = stats.map((e) => e.toJson()).toList();
-    _data['types'] = types.map((e) => e.toJson()).toList();
-    _data['weight'] = weight;
-    return _data;
+    final data = <String, dynamic>{};
+    data['abilities'] = abilities.map((e) => e.toJson()).toList();
+    data['base_experience'] = baseExperience;
+    data['forms'] = forms.map((e) => e.toJson()).toList();
+    data['game_indices'] = gameIndices.map((e) => e.toJson()).toList();
+    data['height'] = height;
+    data['held_items'] = heldItems;
+    data['id'] = id;
+    data['is_default'] = isDefault;
+    data['location_area_encounters'] = locationAreaEncounters;
+    data['moves'] = moves.map((e) => e.toJson()).toList();
+    data['name'] = name;
+    data['order'] = order;
+    data['past_types'] = pastTypes;
+    data['species'] = species.toJson();
+    data['sprites'] = sprites.toJson();
+    data['stats'] = stats.map((e) => e.toJson()).toList();
+    data['types'] = types.map((e) => e.toJson()).toList();
+    data['weight'] = weight;
+    return data;
   }
 }
 
@@ -87,11 +87,11 @@ class Abilities {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['ability'] = ability.toJson();
-    _data['is_hidden'] = isHidden;
-    _data['slot'] = slot;
-    return _data;
+    final data = <String, dynamic>{};
+    data['ability'] = ability.toJson();
+    data['is_hidden'] = isHidden;
+    data['slot'] = slot;
+    return data;
   }
 }
 
@@ -109,10 +109,10 @@ class Ability {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['name'] = name;
-    _data['url'] = url;
-    return _data;
+    final data = <String, dynamic>{};
+    data['name'] = name;
+    data['url'] = url;
+    return data;
   }
 }
 
@@ -130,10 +130,10 @@ class Forms {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['name'] = name;
-    _data['url'] = url;
-    return _data;
+    final data = <String, dynamic>{};
+    data['name'] = name;
+    data['url'] = url;
+    return data;
   }
 }
 
@@ -151,10 +151,10 @@ class GameIndices {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['game_index'] = gameIndex;
-    _data['version'] = version.toJson();
-    return _data;
+    final data = <String, dynamic>{};
+    data['game_index'] = gameIndex;
+    data['version'] = version.toJson();
+    return data;
   }
 }
 
@@ -172,10 +172,10 @@ class Version {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['name'] = name;
-    _data['url'] = url;
-    return _data;
+    final data = <String, dynamic>{};
+    data['name'] = name;
+    data['url'] = url;
+    return data;
   }
 }
 
@@ -195,11 +195,11 @@ class Moves {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['move'] = move.toJson();
-    _data['version_group_details'] =
+    final data = <String, dynamic>{};
+    data['move'] = move.toJson();
+    data['version_group_details'] =
         versionGroupDetails.map((e) => e.toJson()).toList();
-    return _data;
+    return data;
   }
 }
 
@@ -217,10 +217,10 @@ class Move {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['name'] = name;
-    _data['url'] = url;
-    return _data;
+    final data = <String, dynamic>{};
+    data['name'] = name;
+    data['url'] = url;
+    return data;
   }
 }
 
@@ -241,11 +241,11 @@ class VersionGroupDetails {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['level_learned_at'] = levelLearnedAt;
-    _data['move_learn_method'] = moveLearnMethod.toJson();
-    _data['version_group'] = versionGroup.toJson();
-    return _data;
+    final data = <String, dynamic>{};
+    data['level_learned_at'] = levelLearnedAt;
+    data['move_learn_method'] = moveLearnMethod.toJson();
+    data['version_group'] = versionGroup.toJson();
+    return data;
   }
 }
 
@@ -263,10 +263,10 @@ class MoveLearnMethod {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['name'] = name;
-    _data['url'] = url;
-    return _data;
+    final data = <String, dynamic>{};
+    data['name'] = name;
+    data['url'] = url;
+    return data;
   }
 }
 
@@ -284,10 +284,10 @@ class VersionGroup {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['name'] = name;
-    _data['url'] = url;
-    return _data;
+    final data = <String, dynamic>{};
+    data['name'] = name;
+    data['url'] = url;
+    return data;
   }
 }
 
@@ -305,10 +305,10 @@ class Species {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['name'] = name;
-    _data['url'] = url;
-    return _data;
+    final data = <String, dynamic>{};
+    data['name'] = name;
+    data['url'] = url;
+    return data;
   }
 }
 
@@ -333,7 +333,6 @@ class Sprites {
   String frontShinyFemale = "";
 
   Sprites.fromJson(Map<String, dynamic> json) {
-    print(json);
     backDefault = json['back_default'] ?? "";
     backFemale = json['back_female'] ?? "";
     backShiny = json['back_shiny'] ?? "";
@@ -347,16 +346,16 @@ class Sprites {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['back_default'] = backDefault;
-    _data['back_female'] = backFemale;
-    _data['back_shiny'] = backShiny;
-    _data['back_shiny_female'] = backShinyFemale;
-    _data['front_default'] = frontDefault;
-    _data['front_female'] = frontFemale;
-    _data['front_shiny'] = frontShiny;
-    _data['front_shiny_female'] = frontShinyFemale;
-    return _data;
+    final data = <String, dynamic>{};
+    data['back_default'] = backDefault;
+    data['back_female'] = backFemale;
+    data['back_shiny'] = backShiny;
+    data['back_shiny_female'] = backShinyFemale;
+    data['front_default'] = frontDefault;
+    data['front_female'] = frontFemale;
+    data['front_shiny'] = frontShiny;
+    data['front_shiny_female'] = frontShinyFemale;
+    return data;
   }
 }
 
@@ -366,19 +365,14 @@ class DreamWorld {
     this.frontFemale,
   });
   late final String frontDefault;
-  late final Null frontFemale;
+  late final void frontFemale;
 
   DreamWorld.fromJson(Map<String, dynamic> json) {
     frontDefault = json['front_default'];
     frontFemale = null;
   }
 
-  Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['front_default'] = frontDefault;
-    _data['front_female'] = frontFemale;
-    return _data;
-  }
+  
 }
 
 class Home {
@@ -389,9 +383,9 @@ class Home {
     this.frontShinyFemale,
   });
   late final String frontDefault;
-  late final Null frontFemale;
+  late final void frontFemale;
   late final String frontShiny;
-  late final Null frontShinyFemale;
+  late final void frontShinyFemale;
 
   Home.fromJson(Map<String, dynamic> json) {
     frontDefault = json['front_default'];
@@ -400,14 +394,7 @@ class Home {
     frontShinyFemale = null;
   }
 
-  Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['front_default'] = frontDefault;
-    _data['front_female'] = frontFemale;
-    _data['front_shiny'] = frontShiny;
-    _data['front_shiny_female'] = frontShinyFemale;
-    return _data;
-  }
+ 
 }
 
 class Animated {
@@ -422,13 +409,13 @@ class Animated {
     this.frontShinyFemale,
   });
   late final String backDefault;
-  late final Null backFemale;
+  late final void backFemale;
   late final String backShiny;
-  late final Null backShinyFemale;
+  late final void backShinyFemale;
   late final String frontDefault;
-  late final Null frontFemale;
+  late final void frontFemale;
   late final String frontShiny;
-  late final Null frontShinyFemale;
+  late final void frontShinyFemale;
 
   Animated.fromJson(Map<String, dynamic> json) {
     backDefault = json['back_default'];
@@ -440,19 +427,6 @@ class Animated {
     frontShiny = json['front_shiny'];
     frontShinyFemale = null;
   }
-
-  Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['back_default'] = backDefault;
-    _data['back_female'] = backFemale;
-    _data['back_shiny'] = backShiny;
-    _data['back_shiny_female'] = backShinyFemale;
-    _data['front_default'] = frontDefault;
-    _data['front_female'] = frontFemale;
-    _data['front_shiny'] = frontShiny;
-    _data['front_shiny_female'] = frontShinyFemale;
-    return _data;
-  }
 }
 
 class Icons {
@@ -461,19 +435,13 @@ class Icons {
     this.frontFemale,
   });
   late final String frontDefault;
-  late final Null frontFemale;
+  late final void frontFemale;
 
   Icons.fromJson(Map<String, dynamic> json) {
     frontDefault = json['front_default'];
     frontFemale = null;
   }
 
-  Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['front_default'] = frontDefault;
-    _data['front_female'] = frontFemale;
-    return _data;
-  }
 }
 
 class Stats {
@@ -493,11 +461,11 @@ class Stats {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['base_stat'] = baseStat;
-    _data['effort'] = effort;
-    _data['stat'] = stat.toJson();
-    return _data;
+    final data = <String, dynamic>{};
+    data['base_stat'] = baseStat;
+    data['effort'] = effort;
+    data['stat'] = stat.toJson();
+    return data;
   }
 }
 
@@ -515,10 +483,10 @@ class Stat {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['name'] = name;
-    _data['url'] = url;
-    return _data;
+    final data = <String, dynamic>{};
+    data['name'] = name;
+    data['url'] = url;
+    return data;
   }
 }
 
@@ -536,10 +504,10 @@ class Types {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['slot'] = slot;
-    _data['type'] = type.toJson();
-    return _data;
+    final data = <String, dynamic>{};
+    data['slot'] = slot;
+    data['type'] = type.toJson();
+    return data;
   }
 }
 
@@ -557,9 +525,9 @@ class Type {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['name'] = name;
-    _data['url'] = url;
-    return _data;
+    final data = <String, dynamic>{};
+    data['name'] = name;
+    data['url'] = url;
+    return data;
   }
 }
