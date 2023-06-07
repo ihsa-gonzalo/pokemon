@@ -11,3 +11,8 @@ class GetPokemon extends PokemonEvent {
   final String name;
   const GetPokemon(this.name);
 }
+
+class RestoreLocalPokemon extends PokemonEvent {
+  final int spriteIndex;
+  const RestoreLocalPokemon(this.spriteIndex);
+}

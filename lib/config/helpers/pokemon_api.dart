@@ -14,9 +14,7 @@ class PokemonApi {
 
     final pokemonModelApi = PokemonModelApi.fromJson(response.data);
 
-    myPokemon = PokemonModel(pokemonModelApi.name, pokemonModelApi.sprites,pokemonModelApi.sprites.frontDefault,pokemonModelApi.id);
-
-    print(myPokemon.images.frontDefault);
+    myPokemon = PokemonModel(pokemonModelApi.name, pokemonModelApi.sprites,pokemonModelApi.id);
 
     return myPokemon;
   }
