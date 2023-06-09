@@ -70,6 +70,16 @@ class MyPokemon extends StatelessWidget {
                         color: Colors.black,
                         icon: const Icon(Icons.arrow_back)),
                     GestureDetector(
+                        onPanUpdate: (details) {
+                          if (details.delta.dx > 0) 
+                          {
+                              addPokemonIndex!();
+                          }
+                          if (details.delta.dx < 0)
+                          {
+                             decreasePokemonIndex!();
+                          }
+                        },
                         onTap: changePokemonIndex,
                         onLongPress: () {
                           provider.setBackground();
