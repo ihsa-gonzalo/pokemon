@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'dart:async';
 import 'dart:math';
 
@@ -5,9 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokemon/bloc/pokemon_event.dart';
 import 'package:pokemon/bloc/pokemon_bloc.dart';
-import 'package:pokemon/config/helpers/string_extension.dart';
-import 'package:pokemon/domain/pokemon_model.dart';
-import 'package:pokemon/presentation/widgets/pokemon_background.dart';
 import 'package:provider/provider.dart';
 import 'package:wearable_rotary/wearable_rotary.dart';
 
@@ -90,30 +89,43 @@ class _HomeViewState extends State<_HomeView> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: BlocProvider(
-            create: (context) => _newBloc,
-            child: BlocListener<PokemonBloc, PokemonState>(
-              listener: (context, state) {},
-              child: BlocBuilder<PokemonBloc, PokemonState>(
-                builder: (context, state) {
-                  if (state is PokemonInitial) {
-                    _newBloc.add(GetPokemon('$pokemonIndex'));
-                    return const PokemonBackground();
-                  }
-                  if (state is PokemonLoaded) {
-                    return MyPokemon(
-                      pokemon: state.pokemon,
-                      addPokemonIndex: _addPokemonIndex,
-                      decreasePokemonIndex: _decreasePokemonIndex,
-                      changePokemonIndex: _changePokemonIndex,
-                    );
-                  } else {
-                    return Container();
-                  }
-                },
-              ),
-            )));
+    final provider = Provider.of<BackgroundProvider>(context);
+    return ChangeNotifierProvider(
+        create: (_) => BackgroundProvider(),
+        child: SafeArea(
+            child: DecoratedBox(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage(
+                  provider.background,
+                ),
+                fit: BoxFit.fill),
+          ),
+          child: BlocProvider(
+              create: (context) => _newBloc,
+              child: BlocListener<PokemonBloc, PokemonState>(
+                listener: (context, state) {},
+                child: BlocBuilder<PokemonBloc, PokemonState>(
+                  builder: (context, state) {
+                    if (state is PokemonInitial) {
+                      _newBloc.add(GetPokemon('$pokemonIndex'));
+                      return Container();
+                    }
+                    if (state is PokemonLoaded) {
+                      return MyPokemon(
+                        pokemon: state.pokemon,
+                        addPokemonIndex: _addPokemonIndex,
+                        decreasePokemonIndex: _decreasePokemonIndex,
+                        changePokemonIndex: _changePokemonIndex,
+                        provider: provider,
+                      );
+                    } else {
+                      return Container();
+                    }
+                  },
+                ),
+              )),
+        )));
   }
 
   void _addPokemonIndex() {
