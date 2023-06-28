@@ -127,7 +127,7 @@ class _HomeViewState extends State<_HomeView> {
   }
 
   void _changePokemonIndex() {
-    int intValue = Random().nextInt(1000) + 1; // Value is >= 50 and < 150.
+    int intValue = Random().nextInt(1000) + 2; // Value is >= 50 and < 150.
     pokemonIndex = intValue;
     _newBloc.add(GetPokemon('$intValue'));
   }
